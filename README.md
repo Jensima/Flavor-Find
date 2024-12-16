@@ -1,39 +1,51 @@
-Requirements:
+1. Install Python Dependencies
+To begin, you'll need to set up a Python environment and install the required libraries. If you're using virtualenv (recommended), follow these steps:
 
-Python Libraries
+Step 1: Set up a Virtual Environment (Optional)
 
-Streamlit: For building the interactive web application.
-pymongo: For connecting to and interacting with MongoDB.
-spacy: For natural language processing (requires the en_core_web_md model).
-requests: For API calls to fetch recipes from Edamam.
-pandas: For data manipulation and analysis.
-scikit-learn: For building and evaluating the Naive Bayes classification model.
-train_test_split
-TfidfVectorizer
-MultinomialNB
-accuracy_score
-make_pipeline
-re: For regular expressions to handle negation and excluded ingredients.
-Other Requirements
+If you don't have virtualenv installed, you can install it with:
+pip install virtualenv
+Create a virtual environment:
+virtualenv venv
+Activate the virtual environment:
+Windows:
+venv\Scripts\activate
+macOS/Linux:
+source venv/bin/activate
+Step 2: Install Dependencies
 
-MongoDB: Local or remote MongoDB server with a database named s1 and a collection named recipe containing recipes.
-Edamam API: API ID and API Key for fetching external recipes.
-SpaCy Model: Install the medium-sized English model en_core_web_md:
-python -m spacy download en_core_web_md
-Dependencies File (requirements.txt)
+Install the required libraries from the requirements.txt file.
 
+Create a requirements.txt file with the following content:
 streamlit
 pymongo
 spacy
 requests
 pandas
 scikit-learn
-Additional Setup
+Install all the dependencies:
+pip install -r requirements.txt
+Step 3: Install the SpaCy Model
 
-MongoDB database should contain recipe data with fields like recipe_name, recipe_type, ingredients (array), and instructions.
-Replace placeholders in the code:
-EDAMAM_APP_ID with your Edamam API ID.
-EDAMAM_APP_KEY with your Edamam API Key.
-Run the Streamlit App
+Run the following command to install the en_core_web_md SpaCy model:
 
+python -m spacy download en_core_web_md
+2. MongoDB Setup
+Option 1: Install MongoDB Locally
+Download and install MongoDB from the official MongoDB website: MongoDB Download Center.
+After installation, start the MongoDB server by running:
+mongod
+Option 2: Use MongoDB Atlas (Cloud Database)
+If you prefer using a cloud database, sign up for MongoDB Atlas and create a cluster.
+Obtain the connection string (you'll need it for pymongo).
+3. Edamam API Setup
+Sign Up for the Edamam API:
+Go to the Edamam API site and create an account.
+Get your API Key and API ID for the Recipe Search API.
+Add Your API Credentials to the Code: Replace the placeholders in your code with your actual API credentials:
+EDAMAM_APP_ID
+EDAMAM_APP_KEY
+4. Running the Streamlit App
+After all dependencies are installed and configurations are complete, run the Streamlit app by using the following command:
 streamlit run app.py
+The app will open in your default browser. If it doesn't, you can manually navigate to http://localhost:8501 to view the app.
