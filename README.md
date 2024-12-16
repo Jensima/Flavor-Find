@@ -1,4 +1,3 @@
-Here's the installation process for all the required libraries and setup:
 
 ### **1. Install Python Dependencies**
 
